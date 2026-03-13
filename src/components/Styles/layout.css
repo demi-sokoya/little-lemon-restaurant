@@ -80,3 +80,45 @@ footer ul {
 	padding: 0;
 	margin: 0;
 }
+
+/* Responsive Styling for Tablets*/
+
+@media (max-width: 768px) {
+	.hero {
+		grid-template-columns: 1fr;
+	}
+	.specials-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	.testimonials-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	.about {
+		grid-template-columns: 1fr;
+	}
+	footer {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+/* Responsive Styling for Mobile*/
+
+@media (max-width: 480px) {
+	header {
+		flex-direction: column;
+		gap: 16px;
+	}
+	header nav ul {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.specials-grid {
+		grid-template-columns: 1fr;
+	}
+	.testimonials-grid {
+		grid-template-columns: 1fr;
+	}
+	footer {
+		grid-template-columns: 1fr;
+	}
+}
