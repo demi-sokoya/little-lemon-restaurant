@@ -2,7 +2,7 @@ import "./Styles/layout.css";
 
 function Specials() {
 	return (
-		<section>
+		<section id="menu">
 			<div className="specials-header">
 				<h2>This weeks specials</h2>
 				<button>Online Menu</button>

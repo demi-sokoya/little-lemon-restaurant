@@ -1,29 +1,59 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import littleLemonLogo from "./Assets/Logo.svg";
 import "./Styles/layout.css";
 
 function Header() {
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	const handleScroll = (e, sectionId) => {
+		e.preventDefault();
+
+		// if not on homepage, navigate there first then scroll
+		if (location.pathname !== "/") {
+			navigate("/");
+			setTimeout(() => {
+				document
+					.getElementById(sectionId)
+					?.scrollIntoView({ behavior: "smooth" });
+			}, 100);
+		} else {
+			document
+				.getElementById(sectionId)
+				?.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	return (
 		<header>
 			<img src={littleLemonLogo} className="logo" alt="Little Lemon Logo" />
 			<nav>
 				<ul>
 					<li>
-						<a href="">Home</a>
+						<a href="#home" onClick={(e) => handleScroll(e, "home")}>
+							Home
+						</a>
 					</li>
 					<li>
-						<a href="">About</a>
+						<a href="#about" onClick={(e) => handleScroll(e, "about")}>
+							About
+						</a>
 					</li>
 					<li>
-						<a href="">Menu</a>
+						<a href="#menu" onClick={(e) => handleScroll(e, "menu")}>
+							Menu
+						</a>
 					</li>
 					<li>
-						<a href="">Reservations</a>
+						<Link to="/booking">Reservations</Link>
 					</li>
 					<li>
-						<a href="">Order Online</a>
+						<a href="#menu" onClick={(e) => handleScroll(e, "menu")}>
+							Order Online
+						</a>
 					</li>
 					<li>
-						<a href="">Login</a>
+						<a href="#">Login</a>
 					</li>
 				</ul>
 			</nav>
