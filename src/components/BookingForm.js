@@ -15,6 +15,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange }) {
 
 	return (
 		<form onSubmit={handleSubmit}>
+			<h1>Make a Reservation</h1>
 			<fieldset>
 				<div>
 					<label htmlFor="name">Full Name</label>
