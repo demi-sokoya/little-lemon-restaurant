@@ -2,7 +2,7 @@ import "./Styles/layout.css";
 
 function Testimonials() {
 	return (
-		<section>
+		<section className="testimonials">
 			<h2>Testimonials</h2>
 			<div className="testimonials-grid">
 				<div>Review 1</div>

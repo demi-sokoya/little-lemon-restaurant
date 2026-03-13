@@ -51,3 +51,59 @@ nav ul {
 	padding: 0;
 	margin: 0;
 }
+
+/* Section */
+
+section {
+	padding: 48px 32px;
+}
+
+.hero {
+	background-color: var(--green);
+}
+
+.hero h1 {
+	color: var(--yellow);
+}
+
+.hero h2,
+.hero p {
+	color: var(--light-grey);
+}
+
+.testimonials {
+	background-color: var(--light-grey);
+}
+
+/* Button */
+
+button {
+	background-color: var(--yellow);
+	color: var(--dark);
+	font-family: var(--font-body);
+	font-weight: 700;
+	font-size: 16px;
+	border: none;
+	border-radius: 16px;
+	padding: 12px 24px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+button:hover {
+	background-color: #e0b800;
+}
+
+/*Images*/
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 16px;
+	object-fit: cover;
+}
+
+footer img {
+	border-radius: 0;
+	width: 100px;
+}
