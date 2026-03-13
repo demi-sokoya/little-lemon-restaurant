@@ -1,5 +1,12 @@
+import BookingForm from "./BookingForm";
+import Header from "./Header";
+
 function BookingPage() {
-	return <></>;
+	return (
+		<>
+			<BookingForm />
+		</>
+	);
 }
 
 export default BookingPage;
