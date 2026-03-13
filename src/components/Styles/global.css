@@ -5,7 +5,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
 	font-family: var(--font-display);
 }
 
@@ -19,7 +20,7 @@ h2 {
 }
 
 h3 {
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: 700;
 }
 

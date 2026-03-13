@@ -1,4 +1,4 @@
-import "./Styles/layout.css";
+import "./Styles/Specials.css";
 import SpecialsCard from "./SpecialsCard";
 import Item1 from "./Assets/greek-salad.jpg";
 import Item2 from "./Assets/bruchetta.jpg";

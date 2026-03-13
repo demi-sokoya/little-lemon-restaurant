@@ -16,33 +16,12 @@ header nav ul {
 	padding: 0;
 }
 
-/* Hero */
-
-/* .hero {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 16px;
-} */
-
-/* .hero > div {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 16px;
-} */
-
 /* Specials */
 
 .specials-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-
-.specials-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 16px;
 }
 
 /* Testimonials */
@@ -90,9 +69,6 @@ footer ul {
 	.hero {
 		grid-template-columns: 1fr;
 	}
-	.specials-grid {
-		grid-template-columns: 1fr 1fr;
-	}
 	.testimonials-grid {
 		grid-template-columns: 1fr 1fr;
 	}
@@ -114,9 +90,6 @@ footer ul {
 	header nav ul {
 		flex-wrap: wrap;
 		justify-content: center;
-	}
-	.specials-grid {
-		grid-template-columns: 1fr;
 	}
 	.testimonials-grid {
 		grid-template-columns: 1fr;

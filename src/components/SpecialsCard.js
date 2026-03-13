@@ -1,8 +1,9 @@
 import { MdDeliveryDining } from "react-icons/md";
+import "./Styles/SpecialsCard.css";
 
 function SpecialsCard({ title, price, description, imageSrc }) {
 	return (
-		<div>
+		<div className="card">
 			<img src={imageSrc}></img>
 			<div className="card-content">
 				<div className="title-line">

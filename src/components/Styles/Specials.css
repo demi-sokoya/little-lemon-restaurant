@@ -1,0 +1,34 @@
+/* Section */
+.specials-section {
+	padding: 48px 32px;
+}
+
+/* Header row */
+.specials-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+/* Grid */
+.specials-grid {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap; /* 👈 allows cards to wrap to next line */
+	gap: 24px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+	.specials-grid .card {
+		flex-basis: calc(50% - 12px); /* 👈 2 per row */
+	}
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+	.specials-grid .card {
+		flex-basis: 100%; /* 👈 1 per row */
+	}
+}
