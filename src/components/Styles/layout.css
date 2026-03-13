@@ -18,18 +18,18 @@ header nav ul {
 
 /* Hero */
 
-.hero {
+/* .hero {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 16px;
-}
+} */
 
-.hero > div {
+/* .hero > div {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 16px;
-}
+} */
 
 /* Specials */
 
