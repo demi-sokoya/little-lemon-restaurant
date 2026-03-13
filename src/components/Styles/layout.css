@@ -16,21 +16,6 @@ header nav ul {
 	padding: 0;
 }
 
-/* About */
-
-.about {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 16px;
-	padding: 32px;
-}
-
-.about-images {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 8px;
-}
-
 /* Footer */
 
 footer {
