@@ -1,4 +1,5 @@
-import "./Styles/layout.css";
+import "./Styles/Testimonials.css";
+
 import Avatar1 from "./Assets/user1.jpg";
 import Avatar2 from "./Assets/user2.jpg";
 import Avatar3 from "./Assets/user3.jpg";
@@ -15,7 +16,7 @@ function Testimonials() {
 			feedback: "Fresh Mediterranean food and a cozy vibe. 🍋",
 		},
 		{
-			rating: 5,
+			rating: 4,
 			userName: "Nick Wilde",
 			userId: "wilde_side",
 			userImage: Avatar2,
@@ -29,7 +30,7 @@ function Testimonials() {
 			feedback: "Authentic flavors and good portions.",
 		},
 		{
-			rating: 5,
+			rating: 4,
 			userName: "Wunmi Davis",
 			userId: "eyiWunmi",
 			userImage: Avatar4,

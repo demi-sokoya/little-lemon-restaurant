@@ -1,0 +1,50 @@
+/* Card */
+.testimonial-card {
+	background-color: var(--white);
+	border-radius: 16px;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	max-width: 65ch;
+}
+
+/* Rating */
+.rating {
+	color: var(--yellow);
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+/* User row */
+.user {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.user img {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.user p:first-child {
+	font-weight: 700;
+	color: var(--dark);
+}
+
+.user p:last-child {
+	font-size: 14px;
+	color: #666;
+}
+
+/* Feedback */
+.feedback {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--dark);
+}

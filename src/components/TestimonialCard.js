@@ -2,8 +2,8 @@ import "./Styles/TestimonialsCard.css";
 
 function TestimonialsCard({ rating, userName, userId, userImage, feedback }) {
 	return (
-		<div className="card">
-			<div className="rating">{rating}</div>
+		<div className="testimonial-card">
+			<div className="rating">{"★".repeat(rating)}</div>
 			<div className="user">
 				<img src={userImage} />
 				<div>

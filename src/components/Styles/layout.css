@@ -16,22 +16,6 @@ header nav ul {
 	padding: 0;
 }
 
-/* Specials */
-
-.specials-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-/* Testimonials */
-
-.testimonials-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 16px;
-}
-
 /* About */
 
 .about {
