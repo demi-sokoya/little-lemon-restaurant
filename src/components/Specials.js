@@ -1,10 +1,11 @@
 import "./Styles/layout.css";
+import SpecialsCard from "./SpecialsCard";
 import Item1 from "./Assets/greek-salad.jpg";
 import Item2 from "./Assets/bruchetta.jpg";
 import Item3 from "./Assets/lemon-dessert.jpg";
 
 function Specials() {
-	const specialMenus = [
+	const specialsMenu = [
 		{
 			image: Item1,
 			title: "Greek Salad",
@@ -38,9 +39,15 @@ function Specials() {
 				<button className="button">Online Menu</button>
 			</div>
 			<div className="specials-grid">
-				<div>Card 1</div>
-				<div>Card 2</div>
-				<div>Card 3</div>
+				{specialsMenu.map((specials) => (
+					<SpecialsCard
+						imageSrc={specials.image}
+						key={specials.title}
+						title={specials.title}
+						price={specials.price}
+						description={specials.description}
+					/>
+				))}
 			</div>
 		</section>
 	);
