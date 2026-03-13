@@ -1,4 +1,6 @@
 import littleLemonLogo from "./Assets/Logo.svg";
+import "./Styles/layout.css";
+
 function Header() {
 	return (
 		<header>
