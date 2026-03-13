@@ -1,0 +1,47 @@
+body {
+	font-family: var(--font-body);
+	color: var(--dark);
+	background-color: var(--white);
+}
+
+h1 {
+	font-family: var(--font-display);
+	font-size: 64px;
+	color: var(--yellow);
+}
+
+h2 {
+	font-family: var(--font-display);
+	font-size: 40px;
+	color: var(--dark);
+}
+
+h3 {
+	font-family: var(--font-body);
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--dark);
+}
+
+h4 {
+	font-family: var(--font-body);
+	font-size: 16px;
+	font-weight: 700;
+}
+
+p {
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+a {
+	text-decoration: none;
+	color: var(--dark);
+	font-family: var(--font-body);
+	font-weight: 700;
+}
+
+a:hover {
+	color: var(--green);
+}
