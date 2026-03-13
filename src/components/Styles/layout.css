@@ -40,3 +40,12 @@ header nav ul {
 	gap: 16px;
 	padding: 32px;
 }
+
+/* Testimonials */
+
+.testimonials-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+	padding: 32px;
+}
