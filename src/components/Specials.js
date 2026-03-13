@@ -5,7 +5,7 @@ function Specials() {
 		<section id="menu">
 			<div className="specials-header">
 				<h2>This weeks specials</h2>
-				<button>Online Menu</button>
+				<button className="button">Online Menu</button>
 			</div>
 			<div className="specials-grid">
 				<div>Card 1</div>
