@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function BookingForm() {
+function BookingForm({ availableTimes, dispatchOnDateChange }) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
@@ -8,14 +8,6 @@ function BookingForm() {
 	const [time, setTime] = useState("");
 	const [guests, setGuests] = useState("1");
 	const [occasion, setOccasion] = useState("");
-	const [availableTimes] = useState([
-		"17:00",
-		"18:00",
-		"19:00",
-		"20:00",
-		"21:00",
-		"22:00",
-	]);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -63,15 +55,16 @@ function BookingForm() {
 						type="date"
 						id="res-date"
 						value={date}
-						onChange={(e) => setDate(e.target.value)}
+						onChange={(e) => {
+							const newDate = e.target.value;
+							setDate(newDate);
+							dispatchOnDateChange({ type: "update_times", date: newDate });
+						}}
 					/>
 				</div>
 				<div>
 					<label htmlFor="res-time">Choose time</label>
-					<select
-						id="res-time"
-						value={time}
-						onChange={(e) => setTime(e.target.value)}>
+					<select id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
 						<option value="">Select a time</option>
 						{availableTimes.map((availableTime) => (
 							<option key={availableTime} value={availableTime}>
@@ -94,10 +87,7 @@ function BookingForm() {
 				</div>
 				<div>
 					<label htmlFor="occasion">Occasion</label>
-					<select
-						id="occasion"
-						value={occasion}
-						onChange={(e) => setOccasion(e.target.value)}>
+					<select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
 						<option value="">Select an occasion</option>
 						<option value="Birthday">Birthday</option>
 						<option value="Anniversary">Anniversary</option>
