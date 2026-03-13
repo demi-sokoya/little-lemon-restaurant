@@ -1,11 +1,13 @@
 import secondaryLogo from "./Assets/secondaryLogo.png";
-import "./Styles/layout.css";
+import "./Styles/Footer.css";
 function Footer() {
 	return (
 		<footer>
-			<img src={secondaryLogo} />
-			<div>
-				<div>
+			<div className="footer-content">
+				<div className="footer-column">
+					<img src={secondaryLogo} alt="Little Lemon Logo" />
+				</div>
+				<div className="footer-column">
 					<h4>Navigation</h4>
 					<ul>
 						<li>
@@ -28,7 +30,7 @@ function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div>
+				<div className="footer-column">
 					<h4>Contact</h4>
 					<ul>
 						<li>
@@ -42,7 +44,7 @@ function Footer() {
 						</li>
 					</ul>
 				</div>
-				<div>
+				<div className="footer-column">
 					<h4>Socials</h4>
 					<ul>
 						<li>
@@ -56,6 +58,9 @@ function Footer() {
 						</li>
 					</ul>
 				</div>
+			</div>
+			<div className="footer-copyright">
+				<p>2026 © Little Lemon</p>
 			</div>
 		</footer>
 	);

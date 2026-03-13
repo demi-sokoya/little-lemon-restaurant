@@ -88,10 +88,9 @@
 		max-width: 100%;
 	}
 
-	/* disable animations on mobile */
-	.about-images img {
-		transform: none;
-		opacity: 1;
+	/* disable images on mobile */
+	.about-images {
+		display: none;
 	}
 
 	.img-bottom {
