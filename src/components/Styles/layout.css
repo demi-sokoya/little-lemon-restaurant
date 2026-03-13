@@ -81,6 +81,12 @@ footer ul {
 	margin: 0;
 }
 
+footer img {
+	width: 100px; /* adjust this value to your liking */
+	height: auto; /* keeps the aspect ratio */
+	object-fit: contain;
+}
+
 /* Responsive Styling for Tablets*/
 
 @media (max-width: 768px) {
