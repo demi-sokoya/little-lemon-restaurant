@@ -64,3 +64,19 @@ header nav ul {
 	grid-template-columns: 1fr 1fr;
 	gap: 8px;
 }
+
+/* Footer */
+
+footer {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+	padding: 32px;
+	background-color: #edefee;
+}
+
+footer ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}

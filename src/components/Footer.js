@@ -1,4 +1,5 @@
 import secondaryLogo from "./Assets/secondaryLogo.png";
+import "./Styles/layout.css";
 function Footer() {
 	return (
 		<footer>
