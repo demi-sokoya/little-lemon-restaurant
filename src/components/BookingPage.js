@@ -1,12 +1,17 @@
 import { useReducer } from "react";
 import BookingForm from "./BookingForm";
+import { fetchAPI } from "../api";
 
-export const initializeTimes = () => ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+export const initializeTimes = () => {
+	return fetchAPI(new Date());
+};
 
 export const updateTimes = (state, action) => {
-	// action.date contains the newly selected date.
-	// For now, always return the same times.
-	return initializeTimes();
+	if (action.date) {
+		const [year, month, day] = action.date.split("-");
+		return fetchAPI(new Date(year, month - 1, day));
+	}
+	return state;
 };
 
 function BookingPage() {
