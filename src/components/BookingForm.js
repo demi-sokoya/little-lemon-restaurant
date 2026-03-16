@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Styles/BookingForm.css";
 
 function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	const [name, setName] = useState("");
@@ -9,21 +10,45 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	const [guests, setGuests] = useState("1");
 	const [occasion, setOccasion] = useState("");
 
-	const isFormValid = () => {
-		return (
-			name.length >= 2 &&
-			email.includes("@") &&
-			phone.length >= 10 &&
-			date !== "" &&
-			time !== "" &&
-			parseInt(guests) >= 1 &&
-			parseInt(guests) <= 10 &&
-			occasion !== ""
-		);
+	const [touched, setTouched] = useState({
+		name: false,
+		email: false,
+		phone: false,
+		date: false,
+		time: false,
+		guests: false,
+		occasion: false,
+	});
+
+	const errors = {
+		name: name.length < 2 ? "Name must be at least 2 characters" : "",
+		email: !email.includes("@") ? "Please enter a valid email address" : "",
+		phone: phone.length < 10 ? "Please enter a valid 10-digit phone number" : "",
+		date: date === "" ? "Please select a date" : "",
+		time: time === "" ? "Please select a time" : "",
+		guests: parseInt(guests) < 1 || parseInt(guests) > 10 ? "Guests must be between 1 and 10" : "",
+		occasion: occasion === "" ? "Please select an occasion" : "",
+	};
+
+	const isFormValid = () => Object.values(errors).every((e) => e === "");
+
+	const handleBlur = (field) => {
+		setTouched((prev) => ({ ...prev, [field]: true }));
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+
+		setTouched({
+			name: true,
+			email: true,
+			phone: true,
+			date: true,
+			time: true,
+			guests: true,
+			occasion: true,
+		});
+
 		if (isFormValid()) {
 			submitForm({
 				name,
@@ -38,7 +63,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} aria-label="resrvation-form">
+		<form onSubmit={handleSubmit} aria-label="reservation-form">
 			<h1>Make a Reservation</h1>
 			<fieldset>
 				<legend>Reservation Details</legend>
@@ -49,12 +74,15 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						placeholder="John Doe"
 						name="name"
 						id="name"
+						className={touched.name && errors.name ? "input-error" : ""}
 						value={name}
 						onChange={(e) => setName(e.target.value)}
+						onBlur={() => handleBlur("name")}
 						required
 						minLength={2}
 						maxLength={50}
 					/>
+					{touched.name && errors.name && <span className="error-message">{errors.name}</span>}
 				</div>
 				<div>
 					<label htmlFor="email">Email</label>
@@ -62,11 +90,14 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						type="email"
 						placeholder="john.doe@example.com"
 						id="email"
+						className={touched.email && errors.email ? "input-error" : ""}
 						name="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						onBlur={() => handleBlur("email")}
 						required
 					/>
+					{touched.email && errors.email && <span className="error-message">{errors.email}</span>}
 				</div>
 				<div>
 					<label htmlFor="phone">Phone Number</label>
@@ -74,18 +105,22 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						type="tel"
 						placeholder="(555) 555-5555"
 						id="phone"
+						className={touched.phone && errors.phone ? "input-error" : ""}
 						name="phone"
 						value={phone}
 						onChange={(e) => setPhone(e.target.value)}
+						onBlur={() => handleBlur("phone")}
 						required
 						pattern="[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}"
 					/>
+					{touched.phone && errors.phone && <span className="error-message">{errors.phone}</span>}
 				</div>
 				<div>
 					<label htmlFor="res-date">Choose date</label>
 					<input
 						type="date"
 						id="res-date"
+						className={touched.date && errors.date ? "input-error" : ""}
 						value={date}
 						min={new Date().toISOString().split("T")[0]}
 						onChange={(e) => {
@@ -93,12 +128,21 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 							setDate(newDate);
 							dispatchOnDateChange({ type: "update_times", date: newDate });
 						}}
+						onBlur={() => handleBlur("date")}
 						required
 					/>
+					{touched.date && errors.date && <span className="error-message">{errors.date}</span>}
 				</div>
 				<div>
 					<label htmlFor="res-time">Choose time</label>
-					<select id="res-time" value={time} onChange={(e) => setTime(e.target.value)} required>
+					<select
+						id="res-time"
+						className={touched.time && errors.time ? "input-error" : ""}
+						value={time}
+						onChange={(e) => setTime(e.target.value)}
+						onBlur={() => handleBlur("time")}
+						required
+					>
 						<option value="">Select a time</option>
 						{availableTimes.map((availableTime) => (
 							<option key={availableTime} value={availableTime}>
@@ -106,6 +150,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 							</option>
 						))}
 					</select>
+					{touched.time && errors.time && <span className="error-message">{errors.time}</span>}
 				</div>
 				<div>
 					<label htmlFor="guests">Number of guests</label>
@@ -115,17 +160,24 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						min="1"
 						max="10"
 						id="guests"
+						className={touched.guests && errors.guests ? "input-error" : ""}
 						value={guests}
 						onChange={(e) => setGuests(e.target.value)}
+						onBlur={() => handleBlur("guests")}
 						required
 					/>
+					{touched.guests && errors.guests && (
+						<span className="error-message">{errors.guests}</span>
+					)}
 				</div>
 				<div>
 					<label htmlFor="occasion">Occasion</label>
 					<select
 						id="occasion"
+						className={touched.occasion && errors.occasion ? "input-error" : ""}
 						value={occasion}
 						onChange={(e) => setOccasion(e.target.value)}
+						onBlur={() => handleBlur("occasion")}
 						required
 					>
 						<option value="">Select an occasion</option>
@@ -133,6 +185,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						<option value="Anniversary">Anniversary</option>
 						<option value="Engagement">Engagement</option>
 					</select>
+					{touched.occasion && errors.occasion && (
+						<span className="error-message">{errors.occasion}</span>
+					)}
 				</div>
 				<input
 					type="submit"
