@@ -9,17 +9,32 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	const [guests, setGuests] = useState("1");
 	const [occasion, setOccasion] = useState("");
 
+	const isFormValid = () => {
+		return (
+			name.length >= 2 &&
+			email.includes("@") &&
+			phone.length >= 10 &&
+			date !== "" &&
+			time !== "" &&
+			parseInt(guests) >= 1 &&
+			parseInt(guests) <= 10 &&
+			occasion !== ""
+		);
+	};
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		submitForm({
-			name,
-			email,
-			phone,
-			date,
-			time,
-			guests,
-			occasion,
-		});
+		if (isFormValid()) {
+			submitForm({
+				name,
+				email,
+				phone,
+				date,
+				time,
+				guests,
+				occasion,
+			});
+		}
 	};
 
 	return (
@@ -35,6 +50,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						id="name"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
+						required
+						minLength={2}
+						maxLength={50}
 					/>
 				</div>
 				<div>
@@ -46,6 +64,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						name="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						required
 					/>
 				</div>
 				<div>
@@ -57,6 +76,8 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						name="phone"
 						value={phone}
 						onChange={(e) => setPhone(e.target.value)}
+						required
+						pattern="[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}"
 					/>
 				</div>
 				<div>
@@ -65,16 +86,18 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						type="date"
 						id="res-date"
 						value={date}
+						min={new Date().toISOString().split("T")[0]}
 						onChange={(e) => {
 							const newDate = e.target.value;
 							setDate(newDate);
 							dispatchOnDateChange({ type: "update_times", date: newDate });
 						}}
+						required
 					/>
 				</div>
 				<div>
 					<label htmlFor="res-time">Choose time</label>
-					<select id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
+					<select id="res-time" value={time} onChange={(e) => setTime(e.target.value)} required>
 						<option value="">Select a time</option>
 						{availableTimes.map((availableTime) => (
 							<option key={availableTime} value={availableTime}>
@@ -93,18 +116,24 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						id="guests"
 						value={guests}
 						onChange={(e) => setGuests(e.target.value)}
+						required
 					/>
 				</div>
 				<div>
 					<label htmlFor="occasion">Occasion</label>
-					<select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+					<select
+						id="occasion"
+						value={occasion}
+						onChange={(e) => setOccasion(e.target.value)}
+						required
+					>
 						<option value="">Select an occasion</option>
 						<option value="Birthday">Birthday</option>
 						<option value="Anniversary">Anniversary</option>
 						<option value="Engagement">Engagement</option>
 					</select>
 				</div>
-				<input type="submit" value="Create Reservation" />
+				<input type="submit" value="Create Reservation" disabled={!isFormValid()} />
 			</fieldset>
 		</form>
 	);
