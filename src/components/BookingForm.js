@@ -38,9 +38,10 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} aria-label="form">
+		<form onSubmit={handleSubmit} aria-label="resrvation-form">
 			<h1>Make a Reservation</h1>
 			<fieldset>
+				<legend>Reservation Details</legend>
 				<div>
 					<label htmlFor="name">Full Name</label>
 					<input
@@ -133,7 +134,12 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						<option value="Engagement">Engagement</option>
 					</select>
 				</div>
-				<input type="submit" value="Create Reservation" disabled={!isFormValid()} />
+				<input
+					type="submit"
+					value="Create Reservation"
+					disabled={!isFormValid()}
+					aria-label="On Click"
+				/>
 			</fieldset>
 		</form>
 	);

@@ -38,7 +38,7 @@ function Testimonials() {
 		},
 	];
 	return (
-		<section className="testimonials">
+		<section className="testimonials" aria-label="Customer testimonials">
 			<h2>Testimonials</h2>
 			<div className="testimonials-grid">
 				{reviews.map((review) => (

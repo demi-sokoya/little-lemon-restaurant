@@ -5,7 +5,7 @@ function TestimonialsCard({ rating, userName, userId, userImage, feedback }) {
 		<div className="testimonial-card">
 			<div className="rating">{"★".repeat(rating)}</div>
 			<div className="user">
-				<img src={userImage} />
+				<img src={userImage} alt={userName} />
 				<div>
 					<p>{userName}</p>
 					<p>{userId}</p>

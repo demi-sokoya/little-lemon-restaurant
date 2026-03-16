@@ -30,10 +30,12 @@ function Specials() {
 	];
 
 	return (
-		<section id="menu">
+		<section id="menu" aria-label="This weeks specials">
 			<div className="specials-header">
 				<h2>This weeks specials!</h2>
-				<button className="button">Online Menu</button>
+				<button className="button" aria-label="On Click">
+					Online Menu
+				</button>
 			</div>
 			<div className="specials-grid">
 				{specialsMenu.map((specials) => (
