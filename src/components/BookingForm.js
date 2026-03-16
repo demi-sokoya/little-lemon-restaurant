@@ -74,7 +74,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						placeholder="John Doe"
 						name="name"
 						id="name"
-						className={touched.name && errors.name ? "input-error" : ""}
+						className={
+							touched.name && errors.name ? "input-error" : touched.name ? "input-valid" : ""
+						}
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 						onBlur={() => handleBlur("name")}
@@ -90,7 +92,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						type="email"
 						placeholder="john.doe@example.com"
 						id="email"
-						className={touched.email && errors.email ? "input-error" : ""}
+						className={
+							touched.email && errors.email ? "input-error" : touched.email ? "input-valid" : ""
+						}
 						name="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
@@ -105,13 +109,15 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						type="tel"
 						placeholder="(555) 555-5555"
 						id="phone"
-						className={touched.phone && errors.phone ? "input-error" : ""}
+						className={
+							touched.phone && errors.phone ? "input-error" : touched.phone ? "input-valid" : ""
+						}
 						name="phone"
 						value={phone}
 						onChange={(e) => setPhone(e.target.value)}
 						onBlur={() => handleBlur("phone")}
 						required
-						pattern="[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}"
+						pattern="[0-9]{10}"
 					/>
 					{touched.phone && errors.phone && <span className="error-message">{errors.phone}</span>}
 				</div>
@@ -120,7 +126,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 					<input
 						type="date"
 						id="res-date"
-						className={touched.date && errors.date ? "input-error" : ""}
+						className={
+							touched.date && errors.date ? "input-error" : touched.date ? "input-valid" : ""
+						}
 						value={date}
 						min={new Date().toISOString().split("T")[0]}
 						onChange={(e) => {
@@ -137,7 +145,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 					<label htmlFor="res-time">Choose time</label>
 					<select
 						id="res-time"
-						className={touched.time && errors.time ? "input-error" : ""}
+						className={
+							touched.time && errors.time ? "input-error" : touched.time ? "input-valid" : ""
+						}
 						value={time}
 						onChange={(e) => setTime(e.target.value)}
 						onBlur={() => handleBlur("time")}
@@ -160,7 +170,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						min="1"
 						max="10"
 						id="guests"
-						className={touched.guests && errors.guests ? "input-error" : ""}
+						className={
+							touched.guests && errors.guests ? "input-error" : touched.guests ? "input-valid" : ""
+						}
 						value={guests}
 						onChange={(e) => setGuests(e.target.value)}
 						onBlur={() => handleBlur("guests")}
@@ -174,7 +186,13 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 					<label htmlFor="occasion">Occasion</label>
 					<select
 						id="occasion"
-						className={touched.occasion && errors.occasion ? "input-error" : ""}
+						className={
+							touched.occasion && errors.occasion
+								? "input-error"
+								: touched.occasion
+									? "input-valid"
+									: ""
+						}
 						value={occasion}
 						onChange={(e) => setOccasion(e.target.value)}
 						onBlur={() => handleBlur("occasion")}

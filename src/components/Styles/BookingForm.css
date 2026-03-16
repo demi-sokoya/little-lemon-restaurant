@@ -1,14 +1,100 @@
-.error-message {
-	color: #d32f2f;
-	font-size: 14px;
-	margin-top: 4px;
-	display: block;
+/* Form layout */
+form {
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 48px 32px;
 }
 
+form h1 {
+	white-space: nowrap;
+	margin-bottom: 24px;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+legend {
+	font-weight: 700;
+	font-size: 18px;
+	margin-bottom: 16px;
+	color: var(--green);
+}
+
+/* Field wrapper */
+fieldset div {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+/* Labels */
+label {
+	font-weight: 700;
+	font-size: 14px;
+	color: var(--dark);
+}
+
+/* Inputs and selects */
+input,
+select {
+	padding: 10px 12px;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	font-family: var(--font-body);
+	font-size: 16px;
+	outline: none;
+	transition: border-color 0.2s ease;
+	width: 100%;
+}
+
+input:focus,
+select:focus {
+	border-color: var(--green);
+}
+
+/* Validation states */
 .input-error {
+	border-color: #d32f2f;
+	outline-color: #d32f2f;
+}
+
+.input-error:focus {
 	border-color: #d32f2f;
 }
 
 .input-valid {
 	border-color: var(--green);
+}
+
+/* Error message */
+.error-message {
+	color: #d32f2f;
+	font-size: 13px;
+	margin-top: 2px;
+}
+
+/* Submit button */
+input[type="submit"] {
+	background-color: var(--yellow);
+	color: var(--dark);
+	margin-top: 8px;
+	width: 100%;
+	border: none;
+	border-radius: 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+	background-color: #e0b800;
+}
+
+input[type="submit"]:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
 }
