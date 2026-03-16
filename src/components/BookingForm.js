@@ -38,7 +38,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} aria-label="form">
 			<h1>Make a Reservation</h1>
 			<fieldset>
 				<div>
