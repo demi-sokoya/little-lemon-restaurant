@@ -16,6 +16,15 @@ header nav ul {
 	padding: 0;
 }
 
+header nav a {
+	transition: border-bottom 0.2s ease;
+	border-bottom: 2px solid transparent;
+}
+
+header nav a:hover {
+	border-bottom: 4px solid var(--yellow);
+}
+
 /* Footer */
 
 footer {
