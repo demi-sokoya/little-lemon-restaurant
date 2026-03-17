@@ -13,20 +13,18 @@ function Header() {
 		if (location.pathname !== "/") {
 			navigate("/");
 			setTimeout(() => {
-				document
-					.getElementById(sectionId)
-					?.scrollIntoView({ behavior: "smooth" });
+				document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
 			}, 100);
 		} else {
-			document
-				.getElementById(sectionId)
-				?.scrollIntoView({ behavior: "smooth" });
+			document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
 		}
 	};
 
 	return (
 		<header>
-			<img src={littleLemonLogo} className="logo" alt="Little Lemon Logo" />
+			<Link to="/">
+				<img src={littleLemonLogo} className="logo" alt="Little Lemon Logo" />
+			</Link>
 			<nav>
 				<ul>
 					<li>

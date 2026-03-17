@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import "./Styles/BookingForm.css";
 
 function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
@@ -9,6 +10,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	const [time, setTime] = useState("");
 	const [guests, setGuests] = useState("1");
 	const [occasion, setOccasion] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 
 	const [touched, setTouched] = useState({
 		name: false,
@@ -50,15 +52,19 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 		});
 
 		if (isFormValid()) {
-			submitForm({
-				name,
-				email,
-				phone,
-				date,
-				time,
-				guests,
-				occasion,
-			});
+			setIsLoading(true);
+			setTimeout(() => {
+				submitForm({
+					name,
+					email,
+					phone,
+					date,
+					time,
+					guests,
+					occasion,
+				});
+				setIsLoading(false);
+			}, 1500);
 		}
 	};
 
@@ -207,12 +213,27 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						<span className="error-message">{errors.occasion}</span>
 					)}
 				</div>
-				<input
+				<motion.button
 					type="submit"
-					value="Create Reservation"
-					disabled={!isFormValid()}
+					disabled={!isFormValid() || isLoading}
 					aria-label="On Click"
-				/>
+					className={`submit-btn ${!isFormValid() ? "disabled" : ""}`}
+					whileHover={isFormValid() ? { scale: 1.02 } : {}}
+					whileTap={isFormValid() ? { scale: 0.98 } : {}}
+				>
+					{isLoading ? (
+						<div className="spinner-wrapper">
+							<motion.span
+								className="spinner"
+								animate={{ rotate: 360 }}
+								transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+							/>
+							<span>Reserving...</span>
+						</div>
+					) : (
+						"Create Reservation"
+					)}
+				</motion.button>
 			</fieldset>
 		</form>
 	);

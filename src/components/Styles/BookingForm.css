@@ -78,23 +78,38 @@ select:focus {
 	margin-top: 2px;
 }
 
-/* Submit button */
-input[type="submit"] {
-	background-color: var(--yellow);
-	color: var(--dark);
+/*Submit Button*/
+.submit-btn {
 	margin-top: 8px;
 	width: 100%;
+	padding: 12px 24px;
+	background-color: var(--yellow);
+	color: var(--dark);
+	font-family: var(--font-body);
+	font-weight: 700;
+	font-size: 16px;
 	border: none;
 	border-radius: 16px;
 	cursor: pointer;
-	transition: background-color 0.2s ease;
 }
 
-input[type="submit"]:hover {
-	background-color: #e0b800;
-}
-
-input[type="submit"]:disabled {
+.submit-btn.disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
+}
+
+.spinner-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.spinner {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 3px solid var(--dark);
+	border-top-color: transparent;
+	border-radius: 50%;
 }
