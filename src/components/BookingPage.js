@@ -21,7 +21,7 @@ function BookingPage() {
 
 	const submitForm = (formData) => {
 		if (submitAPI(formData)) {
-			navigate("/confirmed");
+			navigate("/confirmed", { state: formData });
 		}
 	};
 

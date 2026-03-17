@@ -1,0 +1,66 @@
+.confirmed-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 60vh;
+	padding: 48px 32px;
+	flex-direction: column;
+}
+
+.confirmed-page p {
+	padding-bottom: 24px;
+	font-size: 16px;
+}
+
+.confirmed-card {
+	border: 2px solid var(--green);
+	border-radius: 16px;
+	padding: 32px 40px;
+	max-width: 480px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.confirmed-card h2 {
+	text-align: center;
+	font-family: var(--font-display);
+	font-size: 28px;
+	color: var(--dark);
+}
+
+.confirmed-card hr {
+	border: none;
+	border-top: 1px solid #ccc;
+	margin: 0;
+}
+
+.booking-details {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.booking-details li {
+	font-size: 16px;
+	color: var(--dark);
+}
+
+.booking-details strong {
+	font-weight: 700;
+	margin-right: 4px;
+}
+
+.booking-details em {
+	font-style: italic;
+	color: var(--dark);
+}
+
+.confirmed-card .button {
+	text-align: center;
+	margin-top: 8px;
+}
