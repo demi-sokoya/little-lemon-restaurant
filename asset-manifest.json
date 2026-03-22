@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9b9fd929.css",
+    "main.js": "/static/js/main.c6fc1f4d.js",
+    "static/js/453.22ecf8dc.chunk.js": "/static/js/453.22ecf8dc.chunk.js",
+    "static/media/Mario-and-Adrian.jpg": "/static/media/Mario-and-Adrian.7f44c6d6e341a27d14b3.jpg",
+    "static/media/greek-salad.jpg": "/static/media/greek-salad.bed423a1fab5b210e347.jpg",
+    "static/media/heroImage.jpg": "/static/media/heroImage.e8abf5b772b6817189aa.jpg",
+    "static/media/restaurant-interior.jpg": "/static/media/restaurant-interior.324d0f99bdf19400a0f7.jpg",
+    "static/media/bruchetta.jpg": "/static/media/bruchetta.00e2edbed06a9ec6f5ac.jpg",
+    "static/media/secondaryLogo.png": "/static/media/secondaryLogo.2c859235d6c57bb54176.png",
+    "static/media/user2.jpg": "/static/media/user2.0c9035e6f3f70953ef3e.jpg",
+    "static/media/user1.jpg": "/static/media/user1.4c7d80d566ab6a8c8c54.jpg",
+    "static/media/user4.jpg": "/static/media/user4.87d6c06f7d35daf69010.jpg",
+    "static/media/user3.jpg": "/static/media/user3.7c2af6c393349a16b6f6.jpg",
+    "static/media/Logo.svg": "/static/media/Logo.6c132dfefa69396bba43f72aa595e62f.svg",
+    "index.html": "/index.html",
+    "main.9b9fd929.css.map": "/static/css/main.9b9fd929.css.map",
+    "main.c6fc1f4d.js.map": "/static/js/main.c6fc1f4d.js.map",
+    "453.22ecf8dc.chunk.js.map": "/static/js/453.22ecf8dc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b9fd929.css",
+    "static/js/main.c6fc1f4d.js"
+  ]
+}
