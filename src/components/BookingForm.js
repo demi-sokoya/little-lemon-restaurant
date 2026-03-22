@@ -25,10 +25,14 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 	const errors = {
 		name: name.length < 2 ? "Name must be at least 2 characters" : "",
 		email: !email.includes("@") ? "Please enter a valid email address" : "",
-		phone: phone.length < 10 ? "Please enter a valid 10-digit phone number" : "",
+		phone:
+			phone.length < 10 ? "Please enter a valid 10-digit phone number" : "",
 		date: date === "" ? "Please select a date" : "",
 		time: time === "" ? "Please select a time" : "",
-		guests: parseInt(guests) < 1 || parseInt(guests) > 10 ? "Guests must be between 1 and 10" : "",
+		guests:
+			parseInt(guests) < 1 || parseInt(guests) > 10
+				? "Guests must be between 1 and 10"
+				: "",
 		occasion: occasion === "" ? "Please select an occasion" : "",
 	};
 
@@ -81,7 +85,11 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						name="name"
 						id="name"
 						className={
-							touched.name && errors.name ? "input-error" : touched.name ? "input-valid" : ""
+							touched.name && errors.name
+								? "input-error"
+								: touched.name
+									? "input-valid"
+									: ""
 						}
 						value={name}
 						onChange={(e) => setName(e.target.value)}
@@ -90,7 +98,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						minLength={2}
 						maxLength={50}
 					/>
-					{touched.name && errors.name && <span className="error-message">{errors.name}</span>}
+					{touched.name && errors.name && (
+						<span className="error-message">{errors.name}</span>
+					)}
 				</div>
 				<div>
 					<label htmlFor="email">Email</label>
@@ -99,7 +109,11 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						placeholder="john.doe@example.com"
 						id="email"
 						className={
-							touched.email && errors.email ? "input-error" : touched.email ? "input-valid" : ""
+							touched.email && errors.email
+								? "input-error"
+								: touched.email
+									? "input-valid"
+									: ""
 						}
 						name="email"
 						value={email}
@@ -107,16 +121,22 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						onBlur={() => handleBlur("email")}
 						required
 					/>
-					{touched.email && errors.email && <span className="error-message">{errors.email}</span>}
+					{touched.email && errors.email && (
+						<span className="error-message">{errors.email}</span>
+					)}
 				</div>
 				<div>
 					<label htmlFor="phone">Phone Number</label>
 					<input
 						type="tel"
-						placeholder="(555) 555-5555"
+						placeholder="5555555555"
 						id="phone"
 						className={
-							touched.phone && errors.phone ? "input-error" : touched.phone ? "input-valid" : ""
+							touched.phone && errors.phone
+								? "input-error"
+								: touched.phone
+									? "input-valid"
+									: ""
 						}
 						name="phone"
 						value={phone}
@@ -125,7 +145,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						required
 						pattern="[0-9]{10}"
 					/>
-					{touched.phone && errors.phone && <span className="error-message">{errors.phone}</span>}
+					{touched.phone && errors.phone && (
+						<span className="error-message">{errors.phone}</span>
+					)}
 				</div>
 				<div>
 					<label htmlFor="res-date">Choose date</label>
@@ -133,7 +155,11 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						type="date"
 						id="res-date"
 						className={
-							touched.date && errors.date ? "input-error" : touched.date ? "input-valid" : ""
+							touched.date && errors.date
+								? "input-error"
+								: touched.date
+									? "input-valid"
+									: ""
 						}
 						value={date}
 						min={new Date().toISOString().split("T")[0]}
@@ -145,20 +171,25 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						onBlur={() => handleBlur("date")}
 						required
 					/>
-					{touched.date && errors.date && <span className="error-message">{errors.date}</span>}
+					{touched.date && errors.date && (
+						<span className="error-message">{errors.date}</span>
+					)}
 				</div>
 				<div>
 					<label htmlFor="res-time">Choose time</label>
 					<select
 						id="res-time"
 						className={
-							touched.time && errors.time ? "input-error" : touched.time ? "input-valid" : ""
+							touched.time && errors.time
+								? "input-error"
+								: touched.time
+									? "input-valid"
+									: ""
 						}
 						value={time}
 						onChange={(e) => setTime(e.target.value)}
 						onBlur={() => handleBlur("time")}
-						required
-					>
+						required>
 						<option value="">Select a time</option>
 						{availableTimes.map((availableTime) => (
 							<option key={availableTime} value={availableTime}>
@@ -166,7 +197,9 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 							</option>
 						))}
 					</select>
-					{touched.time && errors.time && <span className="error-message">{errors.time}</span>}
+					{touched.time && errors.time && (
+						<span className="error-message">{errors.time}</span>
+					)}
 				</div>
 				<div>
 					<label htmlFor="guests">Number of guests</label>
@@ -177,7 +210,11 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						max="10"
 						id="guests"
 						className={
-							touched.guests && errors.guests ? "input-error" : touched.guests ? "input-valid" : ""
+							touched.guests && errors.guests
+								? "input-error"
+								: touched.guests
+									? "input-valid"
+									: ""
 						}
 						value={guests}
 						onChange={(e) => setGuests(e.target.value)}
@@ -202,8 +239,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 						value={occasion}
 						onChange={(e) => setOccasion(e.target.value)}
 						onBlur={() => handleBlur("occasion")}
-						required
-					>
+						required>
 						<option value="">Select an occasion</option>
 						<option value="Birthday">Birthday</option>
 						<option value="Anniversary">Anniversary</option>
@@ -219,8 +255,7 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitForm }) {
 					aria-label="On Click"
 					className={`submit-btn ${!isFormValid() ? "disabled" : ""}`}
 					whileHover={isFormValid() ? { scale: 1.02 } : {}}
-					whileTap={isFormValid() ? { scale: 0.98 } : {}}
-				>
+					whileTap={isFormValid() ? { scale: 0.98 } : {}}>
 					{isLoading ? (
 						<div className="spinner-wrapper">
 							<motion.span
