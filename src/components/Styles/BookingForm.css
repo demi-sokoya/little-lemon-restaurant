@@ -113,3 +113,17 @@ select:focus {
 	border-top-color: transparent;
 	border-radius: 50%;
 }
+
+/* Tablet */
+@media (max-width: 768px) {
+	form h1 {
+		white-space: wrap;
+	}
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+	.form h1 {
+		white-space: wrap;
+	}
+}
