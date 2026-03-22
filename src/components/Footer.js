@@ -57,7 +57,9 @@ function Footer() {
 							</a>
 						</li>
 						<li>
-							<a href="#">Login</a>
+							<a href="#home" onClick={(e) => handleScroll(e, "menu")}>
+								Login
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -79,13 +81,13 @@ function Footer() {
 					<h4>Socials</h4>
 					<ul>
 						<li>
-							<a href="">Facebook</a>
+							<a href="https://www.facebook.com">Facebook</a>
 						</li>
 						<li>
-							<a href="">Twitter</a>
+							<a href="https://x.com">Twitter</a>
 						</li>
 						<li>
-							<a href="">Instagram</a>
+							<a href="https://www.instagram.com">Instagram</a>
 						</li>
 					</ul>
 				</div>

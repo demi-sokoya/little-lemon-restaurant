@@ -4,7 +4,7 @@ import "./Styles/SpecialsCard.css";
 function SpecialsCard({ title, price, description, imageSrc }) {
 	return (
 		<div className="card">
-			<img src={imageSrc}></img>
+			<img src={imageSrc} alt={title}></img>
 			<div className="card-content">
 				<div className="title-line">
 					<h3>{title}</h3>

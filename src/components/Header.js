@@ -13,10 +13,14 @@ function Header() {
 		if (location.pathname !== "/") {
 			navigate("/");
 			setTimeout(() => {
-				document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+				document
+					.getElementById(sectionId)
+					?.scrollIntoView({ behavior: "smooth" });
 			}, 100);
 		} else {
-			document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+			document
+				.getElementById(sectionId)
+				?.scrollIntoView({ behavior: "smooth" });
 		}
 	};
 
@@ -51,7 +55,9 @@ function Header() {
 						</a>
 					</li>
 					<li>
-						<a href="#">Login</a>
+						<a href="#home" onClick={(e) => handleScroll(e, "home")}>
+							Login
+						</a>
 					</li>
 				</ul>
 			</nav>
