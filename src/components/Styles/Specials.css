@@ -17,6 +17,7 @@
 	justify-content: space-between;
 	flex-wrap: wrap; /* 👈 allows cards to wrap to next line */
 	gap: 24px;
+	padding: 0 360px;
 }
 
 /* Tablet */
